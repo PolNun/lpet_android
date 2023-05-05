@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LPET_App</string>
+    <!-- Strings related to login -->
+    <string name="texto_iniciar_sesion">Iniciar sesión</string>
+    <string name="texto_titulo_iniciar_sesion">Iniciar sesión</string>
+    <string name="hint_contrasena">Contraseña</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="texto_inicio_registrarse">¿No tenés cuenta?</string>
+    <string name="texto_olvidaste_contrasena">Olvidé mi contraseña</string>
+</resources>
