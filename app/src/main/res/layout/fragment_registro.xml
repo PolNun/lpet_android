@@ -27,6 +27,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/et_borde_inferior"
             android:hint="@string/hint_email"
+            android:autofillHints="emailAddress"
             android:inputType="textEmailAddress" />
 
         <Space
@@ -41,7 +42,9 @@
             android:background="@drawable/et_borde_inferior"
             android:hint="@string/hint_contrasena"
             android:imeOptions="actionDone"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:importantForAutofill="no"
+            tools:ignore="Autofill" />
 
         <Space
             android:layout_width="match_parent"

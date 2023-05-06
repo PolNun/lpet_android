@@ -3,9 +3,9 @@
     <!-- Cuando el EditText no tiene el foco -->
     <item android:state_focused="false">
         <layer-list>
-            <item android:bottom="1dp" android:left="-5dp" android:right="-5dp" android:top="-5dp">
+            <item android:bottom="1dp" android:left="-5dp" android:right="-5dp" android:top="-50dp">
                 <shape android:shape="rectangle">
-                    <stroke android:width="2dp" android:color="@color/color_principal" />
+                    <stroke android:width="2dp" android:color="@color/color_principal_b" />
                     <solid android:color="@android:color/transparent" />
                 </shape>
             </item>
@@ -14,7 +14,7 @@
     <!-- Cuando el EditText tiene el foco -->
     <item android:state_focused="true">
         <layer-list>
-            <item android:bottom="1dp" android:left="-3dp" android:right="-3dp">
+            <item android:bottom="1dp" android:left="-3dp" android:right="-3dp" android:top="-50dp">
                 <shape android:shape="rectangle">
                     <stroke android:width="2dp" android:color="@color/color_principal" />
                     <solid android:color="@android:color/transparent" />
