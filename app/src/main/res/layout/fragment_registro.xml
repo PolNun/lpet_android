@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="bottom"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.login.RegistroFragment">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:text="@string/texto_creatucuenta"
+            android:textAlignment="center"
+            android:textAppearance="@style/titulo_inicia_sesion" />
+
+        <EditText
+            android:id="@+id/username2"
+            android:layout_width="@dimen/ancho_boton_principal"
+            android:layout_height="@dimen/alto_boton_principal"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/color_principal"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="@dimen/ancho_boton_principal"
+            android:layout_height="@dimen/alto_boton_principal"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/color_principal"
+            android:hint="@string/hint_contrasena"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+
+        <EditText
+            android:id="@+id/password3"
+            android:layout_width="@dimen/ancho_boton_principal"
+            android:layout_height="@dimen/alto_boton_principal"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/color_principal"
+            android:hint="@string/confirmar_contrasena"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="@dimen/ancho_boton_principal"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:paddingStart="20dp"
+            android:text="@string/texto_yatengocuenta"
+            android:textAppearance="@style/texto_enlace" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegistrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/boton_principal"
+            android:elevation="12dp"
+            android:text="@string/texto_registrarse"
+            android:textAppearance="@style/texto_boton_principal"
+            />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+        <TextView
+            android:id="@+id/textViewor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:text="@string/o"
+            android:textAlignment="center"
+            android:textAppearance="@style/titulo_inicia_sesion" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegistrarseFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/facebook_logo"
+            android:paddingEnd="20dp"
+            android:paddingStart="10dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/boton_facebook"
+            android:elevation="12dp"
+            android:text="@string/btnRegistrarseFacebook"
+            android:textAppearance="@style/texto_boton_facebook"
+            android:backgroundTint="@color/color_facebook"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="14dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegistrarseGoogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:drawableStart="@drawable/logo_google"
+            android:paddingEnd="45dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/boton_google"
+            android:elevation="12dp"
+            android:text="@string/registrarse_con_google"
+            android:textAppearance="@style/texto_boton_google" />
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
