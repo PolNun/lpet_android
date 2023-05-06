@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" >
-<item>
-    <shape>
-        <gradient
-           android:startColor="@color/color_principal"
-            android:endColor="@color/secundario_gradiente"
-            android:type="linear"
-            android:angle="270"
-        />
-    </shape>
-</item>
-</selector>
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android" >-->
+<!--<item>-->
+<!--    <shape>-->
+<!--        <gradient-->
+<!--           android:startColor="@color/color_principal"-->
+<!--            android:endColor="@color/secundario_gradiente"-->
+<!--            android:type="linear"-->
+<!--            android:angle="270"-->
+<!--        />-->
+<!--    </shape>-->
+<!--</item>-->
+<!--</selector>-->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient
+                android:startColor="@color/color_principal"
+                android:endColor="@color/secundario_gradiente"
+                android:type="linear"
+                android:angle="270"
+                />
+        </shape>
+    </item>
+    <item>
+        <bitmap android:src="@drawable/logo_lpet_blanco"
+            android:gravity="center" />
+    </item>
+</layer-list>

@@ -1,4 +1,4 @@
-package com.lpet.lpet_app.ui.login;
+package com.lpet.lpet_app.ui.registro;
 
 import android.os.Bundle;
 
@@ -9,12 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lpet.lpet_app.R;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegistroFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RegistroFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
