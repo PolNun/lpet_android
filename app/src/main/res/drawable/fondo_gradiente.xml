@@ -11,9 +11,4 @@
                 />
         </shape>
     </item>
-    <item android:drawable="@drawable/logo_lpet_blanco"
-        android:width="148dp"
-        android:height="83dp"
-        android:gravity="center"
-        />
 </layer-list>

@@ -18,7 +18,7 @@
         android:layout_marginBottom="24dp"
         android:text="@string/texto_creatucuenta"
         android:textAlignment="center"
-        android:textAppearance="@style/titulo_inicia_sesion" />
+        android:textAppearance="@style/titulo_form" />
 
     <EditText
         android:id="@+id/username2"
@@ -100,7 +100,7 @@
         android:layout_gravity="center"
         android:text="@string/o"
         android:textAlignment="center"
-        android:textAppearance="@style/titulo_inicia_sesion"
+        android:textAppearance="@style/titulo_form"
         android:textSize="16sp" />
 
     <Space

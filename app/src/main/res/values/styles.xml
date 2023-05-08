@@ -8,8 +8,8 @@
         <item name="android:fontWeight">600</item>
     </style>
 
-    <style name="titulo_inicia_sesion">
-        <item name="fontFamily">@font/roboto_regular</item>
+    <style name="titulo_form">
+        <item name="fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#B0111111</item>
     </style>
