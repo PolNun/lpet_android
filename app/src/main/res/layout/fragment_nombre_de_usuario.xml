@@ -3,45 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
     android:orientation="vertical"
     tools:context=".ui.registro.NombreDeUsuarioFragment">
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
+
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="361dp"
+        android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="24dp"
         android:text="@string/texto_necesitar_nombre"
-        android:textColor="@color/color_principal"
         android:textAlignment="center"
-        android:textAppearance="@style/titulo_nombre_usuario" />
+        android:textAppearance="@style/titulo_nombre_usuario"
+        android:textColor="@color/color_principal" />
+
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="20dp" />
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/tu_avatar"
         android:src="@drawable/avatar" />
+
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20dp" />
 
     <EditText
         android:id="@+id/username2"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/color_secuendario_b"
+        android:background="@drawable/et_borde_inferior_b"
         android:hint="@string/nombre_de_usuario"
+        android:importantForAutofill="no"
         android:inputType="textEmailAddress" />
+
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="32dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegistrarse"
@@ -51,7 +57,10 @@
         android:background="@drawable/boton_secundario"
         android:elevation="12dp"
         android:text="@string/texto_continuar"
-        android:textAppearance="@style/texto_boton_principal"
-        />
+        android:textAppearance="@style/texto_boton_principal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
 
 </LinearLayout>
