@@ -29,11 +29,10 @@
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"
+        android:autofillHints="emailAddress"
         android:background="@drawable/et_borde_inferior"
         android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
-        android:autofillHints="emailAddress"
-        />
+        android:inputType="textEmailAddress" />
 
     <Space
         android:layout_width="match_parent"
@@ -46,18 +45,17 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/et_borde_inferior"
         android:hint="@string/hint_contrasena"
-        android:inputType="textPassword"
         android:importantForAutofill="no"
-        />
+        android:inputType="textPassword" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="6dp" />
+        android:layout_height="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="32dp"
         android:text="@string/texto_olvidaste_contrasena"
         android:textAppearance="@style/texto_enlace" />
 

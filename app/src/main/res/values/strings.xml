@@ -11,7 +11,7 @@
     <string name="texto_registrarse">Registrarse</string>
     <string name="confirmar_contrasena">Confirmar contraseña</string>
     <string name="texto_creatucuenta">Creá tu cuenta</string>
-    <string name="texto_yatengocuenta">Ya tengo cuenta</string>
+    <string name="texto_ya_tengo_cuenta">Ya tengo cuenta</string>
     <string name="btnRegistrarseFacebook">Registrarse con Facebook</string>
     <string name="registrarse_con_google">Registrarse con Google</string>
     <string name="o">ó</string>
