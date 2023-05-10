@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="ancho_boton_principal">315dp</dimen>
+    <dimen name="ancho_boton_principal">325dp</dimen>
     <dimen name="alto_boton_principal">52dp</dimen>
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>

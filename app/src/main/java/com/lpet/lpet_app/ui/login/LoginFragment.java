@@ -16,20 +16,19 @@ import com.lpet.lpet_app.ui.MainActivity;
 import com.lpet.lpet_app.ui.registro.RegistroFragment;
 
 public class LoginFragment extends Fragment {
-private FragmentLoginBinding binding;
+    private FragmentLoginBinding binding;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = FragmentLoginBinding.inflate(getLayoutInflater());
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-         View view = inflater.inflate(R.layout.fragment_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
         TextView tvRegistrarte = view.findViewById(R.id.tvRegistrate);
 
         tvRegistrarte.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +37,6 @@ private FragmentLoginBinding binding;
                 cargarFragmenteRegistro(v);
             }
         });
-        // Inflate the layout for this fragment
         return view;
 
     }
@@ -46,7 +44,7 @@ private FragmentLoginBinding binding;
     private void cargarFragmenteRegistro(View v) {
         RegistroFragment registroFragment = new RegistroFragment();
         FragmentTransaction transaccion = getFragmentManager().beginTransaction();
-        transaccion.replace(R.id.fragment_container,registroFragment);
+        transaccion.replace(R.id.fragment_container, registroFragment);
         transaccion.addToBackStack(null);
         transaccion.commit();
     }

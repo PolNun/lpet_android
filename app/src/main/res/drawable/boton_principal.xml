@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="@dimen/ancho_boton_principal"
-    android:height="@dimen/alto_boton_principal"
-    android:viewportWidth="350"
-    android:viewportHeight="58">
-    <group>
-        <clip-path android:pathData="M10 0H340C345.523 0 350 4.47715 350 10V48C350 53.5228 345.523 58 340 58H10C4.47715 58 0 53.5228 0 48V10C0 4.47715 4.47715 0 10 0Z" />
-        <path
-            android:fillColor="#FF6000"
-            android:pathData="M0 0V58H350V0" />
-    </group>
-</vector>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_principal_b" />
+            <corners android:radius="10dp" />
+            <size android:width="@dimen/ancho_boton_principal" android:height="@dimen/alto_boton_principal" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_principal" />
+            <corners android:radius="10dp" />
+            <size android:width="@dimen/ancho_boton_principal" android:height="@dimen/alto_boton_principal" />
+        </shape>
+    </item>
+</selector>

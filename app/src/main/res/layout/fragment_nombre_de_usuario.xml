@@ -13,7 +13,6 @@
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="24dp"
         android:text="@string/texto_necesitar_nombre"
         android:textAlignment="center"
         android:textAppearance="@style/titulo_nombre_usuario"
@@ -21,7 +20,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="40dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -33,7 +32,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="40dp" />
 
     <EditText
         android:id="@+id/username2"
@@ -47,20 +46,17 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="32dp" />
+        android:layout_height="40dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/boton_secundario"
         android:elevation="12dp"
         android:text="@string/texto_continuar"
         android:textAppearance="@style/texto_boton_principal" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="100dp" />
 
 </LinearLayout>

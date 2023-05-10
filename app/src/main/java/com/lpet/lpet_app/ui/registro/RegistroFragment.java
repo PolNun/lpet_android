@@ -19,18 +19,14 @@ import com.lpet.lpet_app.ui.login.LoginFragment;
 public class RegistroFragment extends Fragment {
     private FragmentRegistroBinding binding;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = FragmentRegistroBinding.inflate(getLayoutInflater());
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         View view = inflater.inflate(R.layout.fragment_registro, container, false);
         Button btnRegistrarte = view.findViewById(R.id.btnRegistrarse);
 
@@ -40,12 +36,7 @@ public class RegistroFragment extends Fragment {
                 cargarFragmentNombreUsuario(v);
             }
         });
-
-
-
-        // Inflate the layout for this fragment
         return view;
-
     }
 
     private void cargarFragmentNombreUsuario(View v) {
@@ -55,5 +46,4 @@ public class RegistroFragment extends Fragment {
         transaccion.addToBackStack(null);
         transaccion.commit();
     }
-
 }
