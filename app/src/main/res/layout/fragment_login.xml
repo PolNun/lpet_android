@@ -75,7 +75,7 @@
         android:textAppearance="@style/texto_boton_principal" />
 
     <TextView
-        android:id="@+id/tvRegistrate"
+        android:id="@+id/tvIrARegistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

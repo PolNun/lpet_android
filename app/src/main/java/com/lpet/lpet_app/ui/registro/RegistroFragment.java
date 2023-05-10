@@ -29,12 +29,20 @@ public class RegistroFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_registro, container, false);
-        Button btnRegistrarte = view.findViewById(R.id.btnRegistrarse);
+        Button btnRegistrarse = view.findViewById(R.id.btnRegistrarse);
+        TextView tvYaTengoCuenta = view.findViewById(R.id.tvYaTengoCuenta);
 
-        btnRegistrarte.setOnClickListener(new View.OnClickListener() {
+        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CargadorDeFragments.cargarFragment(getContext(), new NombreDeUsuarioFragment(), view);
+            }
+        });
+
+        tvYaTengoCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CargadorDeFragments.cargarFragment(getContext(), new LoginFragment(), view);
             }
         });
         return view;
