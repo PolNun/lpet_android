@@ -43,7 +43,8 @@ public class LoginFragment extends Fragment {
 
     private void cargarFragmenteRegistro(View v) {
         RegistroFragment registroFragment = new RegistroFragment();
-        FragmentTransaction transaccion = getFragmentManager().beginTransaction();
+        FragmentTransaction transaccion = getActivity().getSupportFragmentManager().beginTransaction();
+        transaccion.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         transaccion.replace(R.id.fragment_container, registroFragment);
         transaccion.addToBackStack(null);
         transaccion.commit();

@@ -15,6 +15,7 @@ import com.lpet.lpet_app.R;
 import com.lpet.lpet_app.databinding.FragmentLoginBinding;
 import com.lpet.lpet_app.databinding.FragmentRegistroBinding;
 import com.lpet.lpet_app.ui.login.LoginFragment;
+import com.lpet.lpet_app.utils.CargadorDeFragments;
 
 public class RegistroFragment extends Fragment {
     private FragmentRegistroBinding binding;
@@ -33,17 +34,9 @@ public class RegistroFragment extends Fragment {
         btnRegistrarte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cargarFragmentNombreUsuario(v);
+                CargadorDeFragments.cargarFragment(getContext(), new NombreDeUsuarioFragment(), view);
             }
         });
         return view;
-    }
-
-    private void cargarFragmentNombreUsuario(View v) {
-        NombreDeUsuarioFragment nombreDeUsuarioFragment = new NombreDeUsuarioFragment();
-        FragmentTransaction transaccion = getFragmentManager().beginTransaction();
-        transaccion.replace(R.id.fragment_container, nombreDeUsuarioFragment);
-        transaccion.addToBackStack(null);
-        transaccion.commit();
     }
 }
