@@ -1,5 +1,6 @@
 package com.lpet.lpet_app.ui.registro;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -31,7 +32,7 @@ public class RegistroFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_registro, container, false);
         Button btnRegistrarse = view.findViewById(R.id.btnRegistrarse);
         TextView tvYaTengoCuenta = view.findViewById(R.id.tvYaTengoCuenta);
-
+        Activity activity = getActivity();
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

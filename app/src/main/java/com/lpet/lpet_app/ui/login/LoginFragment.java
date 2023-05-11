@@ -16,7 +16,6 @@ import com.lpet.lpet_app.utils.CargadorDeFragments;
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +35,5 @@ public class LoginFragment extends Fragment {
             }
         });
         return view;
-
     }
 }

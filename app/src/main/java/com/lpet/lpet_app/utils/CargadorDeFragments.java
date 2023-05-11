@@ -17,12 +17,17 @@ public class CargadorDeFragments {
         FragmentTransaction transaccion = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
 
         if (fragment instanceof RegistroFragment || fragment instanceof LoginFragment) {
-            transaccion.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            transaccion.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .addToBackStack(null)
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
         } else {
             transaccion.setCustomAnimations(R.anim.entrar_por_derecha, R.anim.salir_por_izquierda,
-                    R.anim.entrar_por_izquierda, R.anim.salir_por_derecha);
-        }
+                            R.anim.entrar_por_izquierda, R.anim.salir_por_derecha)
+                    .addToBackStack(null)
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
 
-        transaccion.addToBackStack(null).replace(R.id.fragment_container, fragment).commit();
+        }
     }
 }
