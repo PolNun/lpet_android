@@ -1,6 +1,9 @@
 package com.lpet.lpet_app.ui.login;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
@@ -36,6 +39,25 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        loginViewModel.getCorreoElectronicoLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                // manejar los cambios del email acá
+            }
+        });
+
+        loginViewModel.getContrasenaLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                // manejar los cambios de la contraseña acá
+            }
+        });
+    }
+
     private void inicializar() {
         binding.tvIrARegistro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +66,13 @@ public class LoginFragment extends Fragment {
                 Navigation.findNavController(v).navigate(accionIrARegistro);
             }
         });
+    }
+
+    private void loguearse() {
+        String correoElectronico = loginViewModel.getCorreoElectronicoLiveData().getValue();
+        String contrasena = loginViewModel.getContrasenaLiveData().getValue();
+
+        // validar y pasar los datos a la propia clase que se encarga de loguear
     }
 
     @Override

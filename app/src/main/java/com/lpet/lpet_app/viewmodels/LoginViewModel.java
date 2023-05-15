@@ -1,29 +1,28 @@
 package com.lpet.lpet_app.viewmodels;
 
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {
-    private String correo_electronico;
-    private String contrasena;
+    private final MutableLiveData<String> correoElectronicoLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> contrasenaLiveData = new MutableLiveData<>();
 
-    public void setCorreo_electronico(String correo_electronico) {
-        this.correo_electronico = correo_electronico;
+    public LiveData<String> getCorreoElectronicoLiveData() {
+        return correoElectronicoLiveData;
     }
 
-    public String getCorreo_electronico() {
-        return "hodsal";
+    public LiveData<String> getContrasenaLiveData() {
+        return contrasenaLiveData;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        correoElectronicoLiveData.setValue(correoElectronico);
     }
 
     public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+        contrasenaLiveData.setValue(contrasena);
     }
 
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public String login() {
-        return "Correo electrónico: " + correo_electronico + "\nContraseña: " + contrasena;
-    }
 }

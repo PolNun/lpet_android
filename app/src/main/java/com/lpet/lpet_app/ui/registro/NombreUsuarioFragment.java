@@ -51,7 +51,7 @@ public class NombreUsuarioFragment extends Fragment {
         binding.btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), correo_electronico, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), correo_electronico + contrasena, Toast.LENGTH_SHORT).show();
             }
         });
     }
