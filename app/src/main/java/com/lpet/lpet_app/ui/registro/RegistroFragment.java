@@ -1,22 +1,15 @@
 package com.lpet.lpet_app.ui.registro;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.lpet.lpet_app.R;
-import com.lpet.lpet_app.databinding.FragmentLoginBinding;
 import com.lpet.lpet_app.databinding.FragmentRegistroBinding;
-import com.lpet.lpet_app.ui.login.LoginFragment;
-import com.lpet.lpet_app.utils.CargadorDeFragments;
 
 public class RegistroFragment extends Fragment {
     private FragmentRegistroBinding binding;
@@ -29,23 +22,6 @@ public class RegistroFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_registro, container, false);
-        Button btnRegistrarse = view.findViewById(R.id.btnRegistrarse);
-        TextView tvYaTengoCuenta = view.findViewById(R.id.tvYaTengoCuenta);
-        Activity activity = getActivity();
-        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CargadorDeFragments.cargarFragment(getContext(), new NombreDeUsuarioFragment(), view);
-            }
-        });
-
-        tvYaTengoCuenta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CargadorDeFragments.cargarFragment(getContext(), new LoginFragment(), view);
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.fragment_registro, container, false);
     }
 }
