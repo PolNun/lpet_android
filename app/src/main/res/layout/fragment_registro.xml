@@ -10,7 +10,7 @@
     tools:context=".ui.registro.RegistroFragment">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvTituloNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -20,7 +20,7 @@
         android:textAppearance="@style/titulo_form" />
 
     <EditText
-        android:id="@+id/username2"
+        android:id="@+id/etNombreDeUsuario"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"

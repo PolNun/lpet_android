@@ -9,20 +9,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lpet.lpet_app.R;
-import com.lpet.lpet_app.databinding.FragmentNombreDeUsuarioBinding;
 
-public class NombreDeUsuarioFragment extends Fragment {
-    private FragmentNombreDeUsuarioBinding binding;
+public class NombreUsuarioFragment extends Fragment {
+    private String correo_electronico;
+    private String contrasena;
+
+    public NombreUsuarioFragment() {
+    }
+
+    public NombreUsuarioFragment(String correo_electronico, String contrasena) {
+        this.correo_electronico = correo_electronico;
+        this.contrasena = contrasena;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = FragmentNombreDeUsuarioBinding.inflate(getLayoutInflater());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_nombre_de_usuario, container, false);
+        return inflater.inflate(R.layout.fragment_nombre_usuario, container, false);
     }
 }
