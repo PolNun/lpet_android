@@ -20,7 +20,7 @@
         android:textAppearance="@style/titulo_form" />
 
     <EditText
-        android:id="@+id/etNombreDeUsuario"
+        android:id="@+id/etCorreoElectronicoRegistro"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"
@@ -34,7 +34,7 @@
         android:layout_height="20dp" />
 
     <EditText
-        android:id="@+id/password2"
+        android:id="@+id/etContrasenaRegistro"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"
@@ -51,7 +51,7 @@
 
 
     <EditText
-        android:id="@+id/password3"
+        android:id="@+id/etConfirmarContrasenaRegistro"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"
@@ -79,7 +79,7 @@
         android:layout_height="20dp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnRegistrarse"
+        android:id="@+id/btnContinuarRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
