@@ -1,4 +1,4 @@
-package com.lpet.lpet_app.ui;
+package com.lpet.lpet_app.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 

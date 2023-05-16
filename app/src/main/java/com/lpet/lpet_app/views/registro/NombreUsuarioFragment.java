@@ -1,4 +1,4 @@
-package com.lpet.lpet_app.ui.registro;
+package com.lpet.lpet_app.views.registro;
 
 import android.os.Bundle;
 

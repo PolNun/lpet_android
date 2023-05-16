@@ -12,7 +12,7 @@
         android:theme="@style/Theme.LPET_App"
         tools:targetApi="31">
         <activity
-            android:name=".ui.splash_screen.SplashScreenActivity"
+            android:name=".views.splash_screen.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/LaunchTheme">
             <intent-filter>
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".views.MainActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
             android:exported="true">
             <intent-filter>

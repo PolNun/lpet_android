@@ -10,7 +10,7 @@
     android:paddingStart="@dimen/fragment_horizontal_margin"
     android:paddingEnd="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.login.LoginFragment">
+    tools:context=".views.login.LoginFragment">
 
     <TextView
         android:layout_width="match_parent"

@@ -1,2 +1,5 @@
-package com.lpet.lpet_app.repositories;public class LoginRepository {
+package com.lpet.lpet_app.repositories;
+
+public class LoginRepository {
+
 }
