@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import com.lpet.lpet_app.R;
 import com.lpet.lpet_app.databinding.FragmentRegistroBinding;
 
+import java.util.Objects;
+
 public class RegistroFragment extends Fragment {
     String correo_electronico;
     String contrasena;
@@ -46,14 +48,20 @@ public class RegistroFragment extends Fragment {
                 correo_electronico = binding.etCorreoElectronicoRegistro.getText().toString();
                 contrasena = binding.etContrasenaRegistro.getText().toString();
 
+                /*
+                TODO: remplazar este código para que se valide el correo electrónico y la contraseña y se utilice el viewmodel de registro
+                TODO: se deben generar clases de validación para los campos
+                 */
+
                 NombreUsuarioFragment nombreUsuarioFragment = new NombreUsuarioFragment();
                 Bundle bundle = new Bundle();
                 bundle.putString("correo_electronico", correo_electronico);
                 bundle.putString("contrasena", contrasena);
                 nombreUsuarioFragment.setArguments(bundle);
 
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.nav_host_fragment, nombreUsuarioFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .addToBackStack(null)
                         .commit();
             }
