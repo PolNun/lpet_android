@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lpet.lpet_app.databinding.FragmentLoginBinding;
+import com.lpet.lpet_app.models.LoginModel;
 import com.lpet.lpet_app.viewmodels.LoginViewModel;
 
 public class LoginFragment extends Fragment {
@@ -62,6 +63,16 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 NavDirections accionIrARegistro = LoginFragmentDirections.actionLoginFragmentToRegistroFragment2();
                 Navigation.findNavController(v).navigate(accionIrARegistro);
+            }
+        });
+        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String correoElectronico = binding.etCorreoElectronico.getText().toString();
+                String contrasena= binding.etContrasenaLogin.getText().toString();
+
+                LoginModel loginModel = new LoginModel(correoElectronico,contrasena);
+                loginViewModel.setLoginModel(loginModel);
             }
         });
     }

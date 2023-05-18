@@ -6,7 +6,9 @@ public final class LoginModel {
     private String correoElectronico;
     private String contrasena;
 
+    public LoginModel() {
 
+    }
     public LoginModel(String correoElectronico, String contrasena) {
         this.correoElectronico = correoElectronico;
         this.contrasena = contrasena;
@@ -36,6 +38,5 @@ public final class LoginModel {
                 "contrasena=" + contrasena + ']';
     }
 
-// TODO Tomar estos atributos y utilizarlos en todas las demas clases del mvvm
-    // TODO HACER LA CLASE REPOSITORIO QUE SE CONECTE AL VIEWMODELLOGIN Y AL SERVIDOR
+
 }
