@@ -6,14 +6,18 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.lpet.lpet_app.models.LoginModel;
-import com.lpet.lpet_app.views.login.LoginFragment;
+import com.lpet.lpet_app.repositories.LoginRepository;
 
 public class LoginViewModel extends ViewModel {
     private final MutableLiveData<String> correoElectronicoLiveData = new MutableLiveData<>();
     private final MutableLiveData<String> contrasenaLiveData = new MutableLiveData<>();
 
     private MutableLiveData<LoginModel> loginModelLivedata = new MutableLiveData<>();
+    private LoginRepository loginRepository;
 
+    public LoginViewModel(){
+        loginRepository = new LoginRepository();
+    }
 
     public LiveData<String> getCorreoElectronicoLiveData() {
         return correoElectronicoLiveData;
@@ -33,6 +37,10 @@ public class LoginViewModel extends ViewModel {
 
     public void setLoginModel(LoginModel loginModel) {
         loginModelLivedata.setValue(loginModel);
+    }
+
+    public boolean validarCredencialesLoginViewModel(){
+        return loginRepository.validarCredencialesLoginRepository(getCorreoElectronicoLiveData().getValue(),getContrasenaLiveData().getValue());
     }
 }
 

@@ -8,10 +8,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.lpet.lpet_app.databinding.FragmentLoginBinding;
 import com.lpet.lpet_app.models.LoginModel;
@@ -68,20 +70,20 @@ public class LoginFragment extends Fragment {
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String correoElectronico = binding.etCorreoElectronico.getText().toString();
-                String contrasena= binding.etContrasenaLogin.getText().toString();
-
-                LoginModel loginModel = new LoginModel(correoElectronico,contrasena);
-                loginViewModel.setLoginModel(loginModel);
+                validarCredencialesLoginFragment();
             }
         });
     }
 
-    private void loguearse() {
-        String correoElectronico = loginViewModel.getCorreoElectronicoLiveData().getValue();
-        String contrasena = loginViewModel.getContrasenaLiveData().getValue();
+    private void validarCredencialesLoginFragment() {
+        String correoElectronico = binding.etCorreoElectronico.getText().toString();
+        String contrasena= binding.etContrasenaLogin.getText().toString();
 
-        // validar y pasar los datos a la propia clase que se encarga de loguear
+       loginViewModel.setCorreoElectronico(correoElectronico);
+       loginViewModel.setContrasena(contrasena);
+       if(loginViewModel.validarCredencialesLoginViewModel()){
+           Toast.makeText(getContext(), "Usuario Logueado", Toast.LENGTH_SHORT).show();
+       }
     }
 
     @Override
