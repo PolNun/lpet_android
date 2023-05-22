@@ -26,6 +26,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Traemos la clase LoginViewModel para guardarla en el objeto loginViewModel intanciado anteriormente
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
     }
 
@@ -77,13 +78,13 @@ public class LoginFragment extends Fragment {
 
     private void validarCredencialesLoginFragment() {
         String correoElectronico = binding.etCorreoElectronico.getText().toString();
-        String contrasena= binding.etContrasenaLogin.getText().toString();
+        String contrasena = binding.etContrasenaLogin.getText().toString();
 
-       loginViewModel.setCorreoElectronico(correoElectronico);
-       loginViewModel.setContrasena(contrasena);
-       if(loginViewModel.validarCredencialesLoginViewModel()){
-           Toast.makeText(getContext(), "Usuario Logueado", Toast.LENGTH_SHORT).show();
-       }
+        loginViewModel.setCorreoElectronico(correoElectronico);
+        loginViewModel.setContrasena(contrasena);
+        if (loginViewModel.validarCredencialesLoginViewModel()) {
+            Toast.makeText(getContext(), "Usuario Logueado", Toast.LENGTH_SHORT).show();
+        } else Toast.makeText(getContext(), "Usuario no logueado", Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -9,16 +9,19 @@ import com.lpet.lpet_app.models.LoginModel;
 import com.lpet.lpet_app.repositories.LoginRepository;
 
 public class LoginViewModel extends ViewModel {
+    // ATRIBUTOS
     private final MutableLiveData<String> correoElectronicoLiveData = new MutableLiveData<>();
     private final MutableLiveData<String> contrasenaLiveData = new MutableLiveData<>();
-
     private MutableLiveData<LoginModel> loginModelLivedata = new MutableLiveData<>();
     private LoginRepository loginRepository;
 
-    public LoginViewModel(){
+    // METODOS
+    //METODO CONSTRUCTOR
+    public LoginViewModel() {
         loginRepository = new LoginRepository();
     }
 
+    // METODOS GETTERS
     public LiveData<String> getCorreoElectronicoLiveData() {
         return correoElectronicoLiveData;
     }
@@ -27,6 +30,7 @@ public class LoginViewModel extends ViewModel {
         return contrasenaLiveData;
     }
 
+    //METODOS SETTERS
     public void setCorreoElectronico(String correoElectronico) {
         correoElectronicoLiveData.setValue(correoElectronico);
     }
@@ -39,10 +43,11 @@ public class LoginViewModel extends ViewModel {
         loginModelLivedata.setValue(loginModel);
     }
 
-    public boolean validarCredencialesLoginViewModel(){
-        return loginRepository.validarCredencialesLoginRepository(getCorreoElectronicoLiveData().getValue(),getContrasenaLiveData().getValue());
+    //METODO validarCredencialesLoginViewModel
+    public boolean validarCredencialesLoginViewModel() {
+        return loginRepository.validarCredencialesLoginRepository(getCorreoElectronicoLiveData().getValue(), getContrasenaLiveData().getValue());
     }
 }
 
-//TODO Tomar estos atributos y relacionarlos con la clase LoginRepository
-// TODO crear la logica de la clase LoginRepository
+
+

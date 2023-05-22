@@ -24,5 +24,5 @@ public class LoginRepository {
         return false; // Credenciales inválidas
     }
 
-
+// TODO crear la logica de la clase LoginRepository
 }
