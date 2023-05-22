@@ -14,20 +14,10 @@ import com.lpet.lpet_app.databinding.FragmentNombreUsuarioBinding;
 public class NombreUsuarioFragment extends Fragment {
     private String correo_electronico;
     private String contrasena;
-
+    private String nombre_usuario;
     FragmentNombreUsuarioBinding binding;
 
     public NombreUsuarioFragment() {
-    }
-
-    public static NombreUsuarioFragment newInstance(String correo_electronico, String contrasena) {
-        NombreUsuarioFragment fragment = new NombreUsuarioFragment();
-        Bundle args = new Bundle();
-        args.putString("correo_electronico", correo_electronico);
-        args.putString("contrasena", contrasena);
-        fragment.setArguments(args);
-
-        return fragment;
     }
 
     @Override
@@ -51,7 +41,8 @@ public class NombreUsuarioFragment extends Fragment {
         binding.btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), correo_electronico + contrasena, Toast.LENGTH_SHORT).show();
+                nombre_usuario = binding.etNombreDeUsuario.getText().toString();
+                Toast.makeText(getContext(), correo_electronico + contrasena + nombre_usuario, Toast.LENGTH_SHORT).show();
             }
         });
     }
