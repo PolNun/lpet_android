@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BBDDUsuarios {
 
-    private List<LoginModel> usuarios;
+    private final List<LoginModel> usuarios;
 
     public BBDDUsuarios() {
         usuarios = new ArrayList<>();
@@ -27,6 +27,7 @@ public class BBDDUsuarios {
                 return usuario;
             }
         }
-    return null;
+
+        return null;
     }
 }

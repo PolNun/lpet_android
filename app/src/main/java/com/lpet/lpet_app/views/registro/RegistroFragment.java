@@ -47,25 +47,7 @@ public class RegistroFragment extends Fragment {
         binding.btnContinuarRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                correo_electronico = binding.etCorreoElectronicoRegistro.getText().toString();
-                contrasena = binding.etContrasenaRegistro.getText().toString();
-
-                /*
-                TODO: remplazar este código para que se valide el correo electrónico y la contraseña y se utilice el viewmodel de registro
-                TODO: se deben generar clases de validación para los campos
-                 */
-
-                NombreUsuarioFragment nombreUsuarioFragment = new NombreUsuarioFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString("correo_electronico", correo_electronico);
-                bundle.putString("contrasena", contrasena);
-                nombreUsuarioFragment.setArguments(bundle);
-
-                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, nombreUsuarioFragment)
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .addToBackStack(null)
-                        .commit();
+                irANombreUsuarioFragment();
             }
         });
 
@@ -82,6 +64,23 @@ public class RegistroFragment extends Fragment {
                 Toast.makeText(getContext(), "Registro con Google aún no implementado", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void irANombreUsuarioFragment() {
+        correo_electronico = binding.etCorreoElectronicoRegistro.getText().toString();
+        contrasena = binding.etContrasenaRegistro.getText().toString();
+        NombreUsuarioFragment nombreUsuarioFragment = new NombreUsuarioFragment();
+        Bundle bundle = new Bundle();
+
+        bundle.putString("correo_electronico", correo_electronico);
+        bundle.putString("contrasena", contrasena);
+        nombreUsuarioFragment.setArguments(bundle);
+
+        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.nav_host_fragment, nombreUsuarioFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override

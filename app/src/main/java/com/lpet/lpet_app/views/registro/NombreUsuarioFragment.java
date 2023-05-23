@@ -2,6 +2,7 @@ package com.lpet.lpet_app.views.registro;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ public class NombreUsuarioFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentNombreUsuarioBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
