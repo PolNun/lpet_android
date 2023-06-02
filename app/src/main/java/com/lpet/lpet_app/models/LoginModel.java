@@ -1,7 +1,5 @@
 package com.lpet.lpet_app.models;
 
-import java.util.Objects;
-
 public final class LoginModel {
     private String correoElectronico;
     private String contrasena;
@@ -9,6 +7,7 @@ public final class LoginModel {
     public LoginModel() {
 
     }
+
     public LoginModel(String correoElectronico, String contrasena) {
         this.correoElectronico = correoElectronico;
         this.contrasena = contrasena;

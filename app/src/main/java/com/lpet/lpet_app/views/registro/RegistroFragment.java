@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.lpet.lpet_app.R;
 import com.lpet.lpet_app.databinding.FragmentRegistroBinding;
+import com.lpet.lpet_app.viewmodels.RegistroViewModel;
 
 import java.util.Objects;
 
@@ -20,10 +22,12 @@ public class RegistroFragment extends Fragment {
     String correo_electronico;
     String contrasena;
     private FragmentRegistroBinding binding;
+    RegistroViewModel registroViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        registroViewModel = new ViewModelProvider(requireActivity()).get(RegistroViewModel.class);
     }
 
     @Override
@@ -50,31 +54,14 @@ public class RegistroFragment extends Fragment {
                 irANombreUsuarioFragment();
             }
         });
-
-        binding.btnRegistrarseFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Registro con Facebook aún no implementado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        binding.btnRegistrarseGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Registro con Google aún no implementado", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void irANombreUsuarioFragment() {
         correo_electronico = binding.etCorreoElectronicoRegistro.getText().toString();
         contrasena = binding.etContrasenaRegistro.getText().toString();
         NombreUsuarioFragment nombreUsuarioFragment = new NombreUsuarioFragment();
-        Bundle bundle = new Bundle();
-
-        bundle.putString("correo_electronico", correo_electronico);
-        bundle.putString("contrasena", contrasena);
-        nombreUsuarioFragment.setArguments(bundle);
+        registroViewModel.setCorreo_electronico(correo_electronico);
+        registroViewModel.setContrsena(contrasena);
 
         FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.nav_host_fragment, nombreUsuarioFragment)

@@ -1,6 +1,8 @@
 package com.lpet.lpet_app.models;
 
-public class RegistroModel {
+import androidx.annotation.NonNull;
+
+public final class RegistroModel {
     private String correo_electronico;
     private String contrasena;
     private String nombre_de_usuario;
@@ -14,28 +16,11 @@ public class RegistroModel {
         this.nombre_de_usuario = nombre_de_usuario;
     }
 
-
-    public String getCorreo_electronico() {
-        return correo_electronico;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public String getNombre_de_usuario() {
-        return nombre_de_usuario;
-    }
-
-    public void setCorreo_electronico(String correo_electronico) {
-        this.correo_electronico = correo_electronico;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
-    public void setNombre_de_usuario(String nombre_de_usuario) {
-        this.nombre_de_usuario = nombre_de_usuario;
+    @NonNull
+    @Override
+    public String toString() {
+        return "Correo electrónico: " + correo_electronico
+                + "\nContraseña: " + contrasena
+                + "\nNombre de usuario: " + nombre_de_usuario + "\n";
     }
 }

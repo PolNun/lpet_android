@@ -30,7 +30,7 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -83,6 +83,8 @@ public class LoginFragment extends Fragment {
        loginViewModel.setContrasena(contrasena);
        if(loginViewModel.validarCredencialesLoginViewModel()){
            Toast.makeText(getContext(), "Usuario Logueado", Toast.LENGTH_SHORT).show();
+       } else {
+              Toast.makeText(getContext(), "Usuario no Logueado", Toast.LENGTH_SHORT).show();
        }
     }
 

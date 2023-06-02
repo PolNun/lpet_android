@@ -15,7 +15,7 @@ public class LoginViewModel extends ViewModel {
     private MutableLiveData<LoginModel> loginModelLivedata = new MutableLiveData<>();
     private LoginRepository loginRepository;
 
-    public LoginViewModel(){
+    public LoginViewModel() {
         loginRepository = new LoginRepository();
     }
 
@@ -39,8 +39,10 @@ public class LoginViewModel extends ViewModel {
         loginModelLivedata.setValue(loginModel);
     }
 
-    public boolean validarCredencialesLoginViewModel(){
-        return loginRepository.validarCredencialesLoginRepository(getCorreoElectronicoLiveData().getValue(),getContrasenaLiveData().getValue());
+    public boolean validarCredencialesLoginViewModel() {
+        String correoElectronico = getCorreoElectronicoLiveData().getValue();
+        String contrasena = getContrasenaLiveData().getValue();
+        return loginRepository.validarCredencialesLoginRepository(correoElectronico, contrasena);
     }
 }
 
