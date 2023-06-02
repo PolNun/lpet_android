@@ -6,45 +6,37 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.lpet.lpet_app.models.LoginModel;
-import com.lpet.lpet_app.repositories.LoginRepository;
+import com.lpet.lpet_app.models.repositories.LoginRepository;
 
 public class LoginViewModel extends ViewModel {
-    private final MutableLiveData<String> correoElectronicoLiveData = new MutableLiveData<>();
-    private final MutableLiveData<String> contrasenaLiveData = new MutableLiveData<>();
-
-    private MutableLiveData<LoginModel> loginModelLivedata = new MutableLiveData<>();
-    private LoginRepository loginRepository;
+    private final MutableLiveData<Boolean> loginSuccessLiveData = new MutableLiveData<>();
+    private final LoginRepository loginRepository;
 
     public LoginViewModel() {
         loginRepository = new LoginRepository();
     }
 
-    public LiveData<String> getCorreoElectronicoLiveData() {
-        return correoElectronicoLiveData;
+    public LiveData<Boolean> getLoginSuccessLiveData() {
+        return loginSuccessLiveData;
     }
 
-    public LiveData<String> getContrasenaLiveData() {
-        return contrasenaLiveData;
-    }
+    public void login(String email, String password) {
+        LoginModel loginModel = new LoginModel(email, password);
 
-    public void setCorreoElectronico(String correoElectronico) {
-        correoElectronicoLiveData.setValue(correoElectronico);
-    }
+        if (loginModel.isValid()) {
+            loginRepository.login(loginModel, new LoginRepository.LoginCallback() {
+                @Override
+                public void onSuccess() {
+                    loginSuccessLiveData.setValue(true);
+                }
 
-    public void setContrasena(String contrasena) {
-        contrasenaLiveData.setValue(contrasena);
-    }
-
-    public void setLoginModel(LoginModel loginModel) {
-        loginModelLivedata.setValue(loginModel);
-    }
-
-    public boolean validarCredencialesLoginViewModel() {
-        String correoElectronico = getCorreoElectronicoLiveData().getValue();
-        String contrasena = getContrasenaLiveData().getValue();
-        return loginRepository.validarCredencialesLoginRepository(correoElectronico, contrasena);
+                @Override
+                public void onFailure() {
+                    loginSuccessLiveData.setValue(false);
+                }
+            });
+        } else {
+            loginSuccessLiveData.setValue(false);
+        }
     }
 }
-
-//TODO Tomar estos atributos y relacionarlos con la clase LoginRepository
-// TODO crear la logica de la clase LoginRepository

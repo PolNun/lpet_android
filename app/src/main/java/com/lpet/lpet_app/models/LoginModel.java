@@ -1,41 +1,45 @@
 package com.lpet.lpet_app.models;
 
-public final class LoginModel {
-    private String correoElectronico;
-    private String contrasena;
+public class LoginModel {
+    private String email;
+    private String password;
 
     public LoginModel() {
-
     }
 
-    public LoginModel(String correoElectronico, String contrasena) {
-        this.correoElectronico = correoElectronico;
-        this.contrasena = contrasena;
+    public LoginModel(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
-
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getEmail() {
+        return email;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "LoginModel[" +
-                "correoElectronico=" + correoElectronico + ", " +
-                "contrasena=" + contrasena + ']';
+    public boolean isValid() {
+        // Perform email and password validation
+        return isValidEmail(email) && isValidPassword(password);
     }
 
+    private boolean isValidEmail(String email) {
+        // Implement email validation logic
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
 
+    private boolean isValidPassword(String password) {
+        // Implement password validation logic
+        return password.length() >= 6;
+    }
 }

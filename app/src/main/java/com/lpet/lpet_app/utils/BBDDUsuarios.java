@@ -7,27 +7,19 @@ import java.util.List;
 
 public class BBDDUsuarios {
 
-    private final List<LoginModel> usuarios;
+    private static final List<LoginModel> loginModelList;
 
-    public BBDDUsuarios() {
-        usuarios = new ArrayList<>();
-        usuarios.add(new LoginModel("matias@hotmail.com", "1234"));
-        usuarios.add(new LoginModel("eli@hotmail.com", "12345"));
-        usuarios.add(new LoginModel("pablo@hotmail.com", "12346"));
-        usuarios.add(new LoginModel("marito@hotmail.com", "12347"));
+    static {
+        loginModelList = new ArrayList<>();
+        loginModelList.add(new LoginModel("user1@example.com", "password1"));
+        loginModelList.add(new LoginModel("user2@example.com", "password2"));
     }
 
-    public List<LoginModel> getUsuarios() {
-        return usuarios;
+    public static List<LoginModel> getLoginModelList() {
+        return loginModelList;
     }
 
-    public LoginModel getUsuarioPorEmail(String email){
-        for(LoginModel usuario: usuarios){
-            if(usuario.getCorreoElectronico().equals(email)){
-                return usuario;
-            }
-        }
-
-        return null;
+    public static void addLoginModel(LoginModel loginModel) {
+        loginModelList.add(loginModel);
     }
 }
