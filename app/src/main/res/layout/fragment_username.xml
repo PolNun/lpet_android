@@ -8,7 +8,7 @@
     tools:context=".views.registro.NombreUsuarioFragment">
 
     <TextView
-        android:id="@+id/tvTituloNombreUsuario"
+        android:id="@+id/tvUsernameTitle"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -34,7 +34,7 @@
         android:layout_height="40dp" />
 
     <EditText
-        android:id="@+id/etNombreDeUsuario"
+        android:id="@+id/etUsername"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"
@@ -48,7 +48,7 @@
         android:layout_height="40dp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnRegistrarse"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

@@ -1,34 +1,26 @@
 package com.lpet.lpet_app.models.repositories;
 
-import android.os.Handler;
-
-import com.lpet.lpet_app.models.LoginModel;
 import com.lpet.lpet_app.utils.BBDDUsuarios;
 
-import java.util.List;
-
 public class LoginRepository {
-    public void login(LoginModel loginModel, LoginCallback callback) {
-        if (isValidCredentials(loginModel)) {
-            callback.onSuccess();
-        } else {
-            callback.onFailure();
-        }
+    private BBDDUsuarios bbddUsuarios;
+
+    public LoginRepository() {
+        bbddUsuarios = new BBDDUsuarios();
     }
 
-    private boolean isValidCredentials(LoginModel loginModel) {
-        List<LoginModel> loginModelList = BBDDUsuarios.getLoginModelList();
-        for (LoginModel model : loginModelList) {
-            if (model.getEmail().equals(loginModel.getEmail()) && model.getPassword().equals(loginModel.getPassword())) {
-                return true;
-            }
+    public void loginUser(String email, String password, LoginCallback callback) {
+        boolean success = bbddUsuarios.checkLoginCredentials(email, password);
+        if (success) {
+            callback.onLoginSuccess();
+        } else {
+            callback.onLoginFailure("Invalid credentials");
         }
-        return false;
     }
 
     public interface LoginCallback {
-        void onSuccess();
+        void onLoginSuccess();
 
-        void onFailure();
+        void onLoginFailure(String errorMessage);
     }
 }

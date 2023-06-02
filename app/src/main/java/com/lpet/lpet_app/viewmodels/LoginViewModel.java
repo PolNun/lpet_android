@@ -21,22 +21,32 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void login(String email, String password) {
-        LoginModel loginModel = new LoginModel(email, password);
-
-        if (loginModel.isValid()) {
-            loginRepository.login(loginModel, new LoginRepository.LoginCallback() {
+        if (isValidEmail(email) && isValidPassword(password)) {
+            loginRepository.loginUser(email, password, new LoginRepository.LoginCallback() {
                 @Override
-                public void onSuccess() {
+                public void onLoginSuccess() {
                     loginSuccessLiveData.setValue(true);
                 }
 
                 @Override
-                public void onFailure() {
+                public void onLoginFailure(String errorMessage) {
                     loginSuccessLiveData.setValue(false);
                 }
             });
         } else {
             loginSuccessLiveData.setValue(false);
         }
+    }
+
+    private boolean isValidEmail(String email) {
+        // Implement email validation logic using regex or any other approach
+        // Return true if email is valid, false otherwise
+        return true;
+    }
+
+    private boolean isValidPassword(String password) {
+        // Implement password validation logic using regex or any other approach
+        // Return true if password is valid, false otherwise
+        return true;
     }
 }

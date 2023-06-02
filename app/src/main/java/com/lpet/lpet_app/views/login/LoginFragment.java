@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lpet.lpet_app.databinding.FragmentLoginBinding;
@@ -22,6 +25,7 @@ public class LoginFragment extends Fragment {
     private EditText etEmail;
     private EditText etPassword;
     private Button btnLogin;
+    private TextView tvGoToRegistration;
     private FragmentLoginBinding binding;
     private LoginViewModel loginViewModel;
 
@@ -31,7 +35,7 @@ public class LoginFragment extends Fragment {
         binding = FragmentLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
-        inicializar();
+        initializeView();
 
         return view;
     }
@@ -53,10 +57,11 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    private void inicializar() {
+    private void initializeView() {
         etEmail = binding.etLoginEmail;
         etPassword = binding.etLoginPassword;
         btnLogin = binding.btnLogin;
+        tvGoToRegistration = binding.tvGoToRegistration;
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +71,18 @@ public class LoginFragment extends Fragment {
                 loginViewModel.login(email, password);
             }
         });
+
+        tvGoToRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToRegistrationFragment(v);
+            }
+        });
+    }
+
+    private void goToRegistrationFragment(View v) {
+        NavDirections actionGoToRegistration = LoginFragmentDirections.actionLoginFragmentToRegistroFragment2();
+        Navigation.findNavController(v).navigate(actionGoToRegistration);
     }
 
     @Override

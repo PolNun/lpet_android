@@ -13,6 +13,7 @@
     tools:context=".views.login.LoginFragment">
 
     <TextView
+        android:id="@+id/tvLoginTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -25,7 +26,7 @@
         android:layout_height="40dp" />
 
     <EditText
-        android:id="@+id/et_login_email"
+        android:id="@+id/etLoginEmail"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"
@@ -39,7 +40,7 @@
         android:layout_height="40dp" />
 
     <EditText
-        android:id="@+id/et_login_password"
+        android:id="@+id/etLoginPassword"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="@dimen/alto_boton_principal"
         android:layout_gravity="center_horizontal"
@@ -75,7 +76,7 @@
         android:textAppearance="@style/texto_boton_principal" />
 
     <TextView
-        android:id="@+id/tvIrARegistro"
+        android:id="@+id/tvGoToRegistration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

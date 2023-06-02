@@ -20,9 +20,9 @@
     </fragment>
     <fragment
         android:id="@+id/registroFragment"
-        android:name="com.lpet.lpet_app.views.registro.RegistroFragment"
+        android:name="com.lpet.lpet_app.views.registro.RegistrationFragment"
         android:label="@string/navref_fragment_registro"
-        tools:layout="@layout/fragment_registro" >
+        tools:layout="@layout/fragment_registration" >
         <action
             android:id="@+id/action_registroFragment_to_nombreUsuarioFragment"
             app:destination="@id/nombreUsuarioFragment" />
@@ -31,5 +31,5 @@
         android:id="@+id/nombreUsuarioFragment"
         android:name="com.lpet.lpet_app.views.registro.NombreUsuarioFragment"
         android:label="fragment_nombre_usuario"
-        tools:layout="@layout/fragment_nombre_usuario" />
+        tools:layout="@layout/fragment_username" />
 </navigation>
