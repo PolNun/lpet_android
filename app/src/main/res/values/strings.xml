@@ -24,4 +24,5 @@
     <string name="tu_avatar">Tu avatar</string>
     <string name="navref_fragment_login">fragment_login</string>
     <string name="navref_fragment_registro">fragment_registro</string>
+    <string name="orientation_portrait">portrait</string>
 </resources>

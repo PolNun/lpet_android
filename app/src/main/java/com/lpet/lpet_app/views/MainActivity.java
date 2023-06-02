@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View view = getLayoutInflater().inflate(R.layout.activity_main, null);
-        setRequestedOrientation(getResources().getConfiguration().orientation);
-
+        int orientation = getResources().getInteger(R.integer.orientation_portrait);
+        setRequestedOrientation(orientation);
         setContentView(view);
     }
 }
