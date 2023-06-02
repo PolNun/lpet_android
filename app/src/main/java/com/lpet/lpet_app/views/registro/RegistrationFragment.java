@@ -14,14 +14,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.lpet.lpet_app.databinding.FragmentRegistrationBinding;
 import com.lpet.lpet_app.viewmodels.RegistrationViewModel;
+
+import java.util.Objects;
 
 public class RegistrationFragment extends Fragment {
     private EditText etEmail;
     private EditText etPassword;
     private Button btnContinueRegistration;
+    private TextView tvAlreadyRegistered;
     private FragmentRegistrationBinding binding;
     private RegistrationViewModel registrationViewModel;
 
@@ -45,6 +49,7 @@ public class RegistrationFragment extends Fragment {
         etEmail = binding.etRegistrationEmail;
         etPassword = binding.etRegistrationPassword;
         btnContinueRegistration = binding.btnContinueRegistration;
+        tvAlreadyRegistered = binding.tvAlreadyRegistered;
 
         btnContinueRegistration.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +59,13 @@ public class RegistrationFragment extends Fragment {
 
                 registrationViewModel.saveStep1Data(email, password);
                 goToUsernameFragment(v);
+            }
+        });
+
+        tvAlreadyRegistered.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requireActivity().onBackPressed();
             }
         });
 
