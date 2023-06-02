@@ -54,6 +54,7 @@
         android:layout_height="20dp" />
 
     <TextView
+        android:id="@+id/tvForgotPassword"
         android:layout_width="@dimen/ancho_boton_principal"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

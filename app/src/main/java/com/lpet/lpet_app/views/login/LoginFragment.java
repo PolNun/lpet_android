@@ -26,6 +26,7 @@ public class LoginFragment extends Fragment {
     private EditText etPassword;
     private Button btnLogin;
     private TextView tvGoToRegistration;
+    private TextView tvForgotPassword;
     private FragmentLoginBinding binding;
     private LoginViewModel loginViewModel;
 
@@ -62,6 +63,7 @@ public class LoginFragment extends Fragment {
         etPassword = binding.etLoginPassword;
         btnLogin = binding.btnLogin;
         tvGoToRegistration = binding.tvGoToRegistration;
+        tvForgotPassword = binding.tvForgotPassword;
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +78,13 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 goToRegistrationFragment(v);
+            }
+        });
+
+        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "¯\\_(ツ)_/¯", Toast.LENGTH_SHORT).show();
             }
         });
     }
