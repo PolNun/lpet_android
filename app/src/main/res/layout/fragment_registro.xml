@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/alto_fragmento"
+    android:layout_gravity="bottom"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/fragment_horizontal_margin"
+    android:paddingEnd="@dimen/fragment_horizontal_margin"
+    tools:context=".views.registro.RegistroFragment">
+
+    <TextView
+        android:id="@+id/tvTituloNombreUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:text="@string/texto_creatucuenta"
+        android:textAlignment="center"
+        android:textAppearance="@style/titulo_form" />
+
+    <EditText
+        android:id="@+id/etCorreoElectronicoRegistro"
+        android:layout_width="@dimen/ancho_boton_principal"
+        android:layout_height="@dimen/alto_boton_principal"
+        android:layout_gravity="center_horizontal"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/et_borde_inferior"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <EditText
+        android:id="@+id/etContrasenaRegistro"
+        android:layout_width="@dimen/ancho_boton_principal"
+        android:layout_height="@dimen/alto_boton_principal"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/et_borde_inferior"
+        android:hint="@string/hint_contrasena"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        tools:ignore="Autofill" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+
+    <EditText
+        android:id="@+id/etConfirmarContrasenaRegistro"
+        android:layout_width="@dimen/ancho_boton_principal"
+        android:layout_height="@dimen/alto_boton_principal"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/et_borde_inferior"
+        android:hint="@string/confirmar_contrasena"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        tools:ignore="Autofill" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <TextView
+        android:id="@+id/tvYaTengoCuenta"
+        android:layout_width="@dimen/ancho_boton_principal"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/texto_ya_tengo_cuenta"
+        android:textAppearance="@style/texto_enlace" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinuarRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/boton_principal"
+        android:elevation="12dp"
+        android:text="@string/texto_registrarse"
+        android:textAppearance="@style/texto_boton_principal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="14dp" />
+
+    <TextView
+        android:id="@+id/textViewor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/o"
+        android:textAlignment="center"
+        android:textAppearance="@style/titulo_form"
+        android:textSize="16sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="14dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegistrarseFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/boton_facebook"
+        android:backgroundTint="@color/color_facebook"
+        android:drawableStart="@drawable/logo_facebook"
+        android:elevation="12dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="20dp"
+        android:text="@string/btnRegistrarseFacebook"
+        android:textAppearance="@style/texto_boton_facebook" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegistrarseGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/boton_google"
+        android:drawableStart="@drawable/google_logo"
+        android:elevation="12dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="45dp"
+        android:text="@string/registrarse_con_google"
+        android:textAppearance="@style/texto_boton_google" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

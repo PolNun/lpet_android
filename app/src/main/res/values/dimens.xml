@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="ancho_boton_principal">350dp</dimen>
-    <dimen name="alto_boton_principal">58dp</dimen>
-    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="ancho_boton_principal">325dp</dimen>
+    <dimen name="alto_boton_principal">52dp</dimen>
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
+    <dimen name="alto_fragmento">560dp</dimen>
 </resources>

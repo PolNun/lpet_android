@@ -7,4 +7,21 @@
     <string name="hint_email">Correo electrónico</string>
     <string name="texto_inicio_registrarse">¿No tenés cuenta?</string>
     <string name="texto_olvidaste_contrasena">Olvidé mi contraseña</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="texto_registrarse">Registrarse</string>
+    <string name="confirmar_contrasena">Confirmar contraseña</string>
+    <string name="texto_creatucuenta">Creá tu cuenta</string>
+    <string name="texto_ya_tengo_cuenta">Ya tengo cuenta</string>
+    <string name="btnRegistrarseFacebook">Registrarse con Facebook</string>
+    <string name="registrarse_con_google">Registrarse con Google</string>
+    <string name="o">ó</string>
+    <string name="pregunta_tenes_cuenta">¿No tenés una cuenta? <b>Registrate</b></string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nombre_de_usuario">Nombre de usuario</string>
+    <string name="texto_continuar">Continuar</string>
+    <string name="texto_necesitar_nombre">Vas a necesitar un nombre</string>
+    <string name="desc_logo_app">Logo de la aplicación</string>
+    <string name="tu_avatar">Tu avatar</string>
+    <string name="navref_fragment_login">fragment_login</string>
+    <string name="navref_fragment_registro">fragment_registro</string>
 </resources>

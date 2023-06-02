@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/alto_fragmento"
+    android:layout_gravity="bottom"
+    android:orientation="vertical"
+    tools:context=".views.registro.NombreUsuarioFragment">
+
+    <TextView
+        android:id="@+id/tvTituloNombreUsuario"
+        android:layout_width="@dimen/ancho_boton_principal"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/texto_necesitar_nombre"
+        android:textAlignment="center"
+        android:textAppearance="@style/titulo_nombre_usuario"
+        android:textColor="@color/color_principal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/tu_avatar"
+        android:src="@drawable/avatar" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <EditText
+        android:id="@+id/etNombreDeUsuario"
+        android:layout_width="@dimen/ancho_boton_principal"
+        android:layout_height="@dimen/alto_boton_principal"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/et_borde_inferior_b"
+        android:hint="@string/nombre_de_usuario"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/boton_secundario"
+        android:elevation="12dp"
+        android:text="@string/texto_continuar"
+        android:textAppearance="@style/texto_boton_principal" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
