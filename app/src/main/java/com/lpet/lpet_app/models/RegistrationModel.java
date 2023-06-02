@@ -1,5 +1,7 @@
 package com.lpet.lpet_app.models;
 
+import androidx.annotation.NonNull;
+
 public class RegistrationModel {
     private String email;
     private String password;
@@ -47,5 +49,15 @@ public class RegistrationModel {
     public boolean isValidUsername() {
         // Add username validation logic using regex if required
         return username != null && !username.isEmpty();
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "RegistrationModel{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

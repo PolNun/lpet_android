@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.lpet.lpet_app.databinding.FragmentUsernameBinding;
 import com.lpet.lpet_app.viewmodels.RegistrationViewModel;
@@ -42,6 +43,7 @@ public class NombreUsuarioFragment extends Fragment {
 
                 registroViewModel.saveStep2Data(username);
                 registroViewModel.register();
+                Toast.makeText(getContext(), "Usuario registrado" + registroViewModel.getRegistrationModelLiveData().getValue().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
