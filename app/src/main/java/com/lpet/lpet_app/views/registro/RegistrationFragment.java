@@ -24,61 +24,39 @@ import java.util.Objects;
 public class RegistrationFragment extends Fragment {
     private EditText etEmail;
     private EditText etPassword;
-    private Button btnContinueRegistration;
-    private TextView tvAlreadyRegistered;
-    private FragmentRegistrationBinding binding;
-    private RegistrationViewModel registrationViewModel;
+    private Button btnNext;
+    FragmentRegistrationBinding binding;
+    RegistrationViewModel registrationViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentRegistrationBinding.inflate(getLayoutInflater());
+        binding = FragmentRegistrationBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-
-        initializeView();
+        inicializar();
 
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        registrationViewModel = new ViewModelProvider(requireActivity()).get(RegistrationViewModel.class);
-    }
-
-    private void initializeView() {
+    private void inicializar() {
         etEmail = binding.etRegistrationEmail;
         etPassword = binding.etRegistrationPassword;
-        btnContinueRegistration = binding.btnContinueRegistration;
-        tvAlreadyRegistered = binding.tvAlreadyRegistered;
-
-        btnContinueRegistration.setOnClickListener(new View.OnClickListener() {
+        btnNext = binding.btnContinueRegistration;
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
                 registrationViewModel.saveStep1Data(email, password);
-                goToUsernameFragment(v);
+                NavDirections action = RegistrationFragmentDirections.actionRegistroFragmentToNombreUsuarioFragment();
+                Navigation.findNavController(v).navigate(action);
             }
         });
-
-        tvAlreadyRegistered.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                requireActivity().onBackPressed();
-            }
-        });
-
-    }
-
-    private void goToUsernameFragment(View v) {
-        NavDirections actionGoToUsername = RegistrationFragmentDirections.actionRegistroFragmentToNombreUsuarioFragment();
-        Navigation.findNavController(v).navigate(actionGoToUsername);
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        registrationViewModel = new ViewModelProvider(requireActivity()).get(RegistrationViewModel.class);
     }
 }

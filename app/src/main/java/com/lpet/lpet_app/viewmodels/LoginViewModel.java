@@ -5,15 +5,14 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.lpet.lpet_app.models.LoginModel;
-import com.lpet.lpet_app.models.repositories.LoginRepository;
+import com.lpet.lpet_app.models.repositories.UserRepository;
 
 public class LoginViewModel extends ViewModel {
     private final MutableLiveData<Boolean> loginSuccessLiveData = new MutableLiveData<>();
-    private final LoginRepository loginRepository;
+    private final UserRepository userRepository;
 
     public LoginViewModel() {
-        loginRepository = new LoginRepository();
+        userRepository = UserRepository.getInstance();
     }
 
     public LiveData<Boolean> getLoginSuccessLiveData() {
@@ -22,7 +21,7 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String email, String password) {
         if (isValidEmail(email) && isValidPassword(password)) {
-            loginRepository.loginUser(email, password, new LoginRepository.LoginCallback() {
+            userRepository.loginUser(email, password, new UserRepository.LoginCallback() {
                 @Override
                 public void onLoginSuccess() {
                     loginSuccessLiveData.setValue(true);

@@ -21,19 +21,18 @@ public class NombreUsuarioFragment extends Fragment {
     private EditText etUsername;
     private Button btnRegister;
     FragmentUsernameBinding binding;
-    RegistrationViewModel registroViewModel;
-
+    RegistrationViewModel registrationViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentUsernameBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        inicializar();
+        initializeView();
 
         return view;
     }
 
-    private void inicializar() {
+    private void initializeView() {
         etUsername = binding.etUsername;
         btnRegister = binding.btnRegister;
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -41,9 +40,9 @@ public class NombreUsuarioFragment extends Fragment {
             public void onClick(View v) {
                 String username = etUsername.getText().toString();
 
-                registroViewModel.saveStep2Data(username);
-                registroViewModel.register();
-                Toast.makeText(getContext(), "Usuario registrado" + registroViewModel.getRegistrationModelLiveData().getValue().toString(), Toast.LENGTH_SHORT).show();
+                registrationViewModel.saveStep2Data(username);
+                registrationViewModel.register();
+                Toast.makeText(getContext(), "Usuario registrado" + registrationViewModel.getRegistrationModelLiveData().getValue().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -51,6 +50,6 @@ public class NombreUsuarioFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        registroViewModel = new ViewModelProvider(requireActivity()).get(RegistrationViewModel.class);
+        registrationViewModel = new ViewModelProvider(requireActivity()).get(RegistrationViewModel.class);
     }
 }
