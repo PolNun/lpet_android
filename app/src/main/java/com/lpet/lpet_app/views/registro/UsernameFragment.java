@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.lpet.lpet_app.databinding.FragmentUsernameBinding;
 import com.lpet.lpet_app.viewmodels.RegistrationViewModel;
 
-public class NombreUsuarioFragment extends Fragment {
+public class UsernameFragment extends Fragment {
     private EditText etUsername;
     private Button btnRegister;
     FragmentUsernameBinding binding;

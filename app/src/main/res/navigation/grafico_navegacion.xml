@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/nombreUsuarioFragment"
-        android:name="com.lpet.lpet_app.views.registro.NombreUsuarioFragment"
+        android:name="com.lpet.lpet_app.views.registro.UsernameFragment"
         android:label="fragment_nombre_usuario"
         tools:layout="@layout/fragment_username" />
 </navigation>
