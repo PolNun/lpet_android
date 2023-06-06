@@ -14,12 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.lpet.lpet_app.databinding.FragmentRegistrationBinding;
 import com.lpet.lpet_app.viewmodels.RegistrationViewModel;
-
-import java.util.Objects;
 
 public class RegistrationFragment extends Fragment {
     private EditText etEmail;
@@ -32,12 +29,12 @@ public class RegistrationFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentRegistrationBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        inicializar();
+        initializeView();
 
         return view;
     }
 
-    private void inicializar() {
+    private void initializeView() {
         etEmail = binding.etRegistrationEmail;
         etPassword = binding.etRegistrationPassword;
         btnNext = binding.btnContinueRegistration;
