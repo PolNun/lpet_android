@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lpet.lpet_app.databinding.FragmentLoginBinding;
-import com.lpet.lpet_app.viewmodels.LoginViewModel;
+import com.lpet.lpet_app.viewmodels.login.LoginViewModel;
 
 public class LoginFragment extends Fragment {
     private EditText etEmail;
@@ -50,7 +50,8 @@ public class LoginFragment extends Fragment {
             @Override
             public void onChanged(Boolean isSuccess) {
                 if (isSuccess) {
-                    Toast.makeText(getContext(), "Login correcto", Toast.LENGTH_SHORT).show();
+                    NavDirections actionGoToChats = LoginFragmentDirections.actionLoginFragmentToChatsActivity();
+                    Navigation.findNavController(view).navigate(actionGoToChats);
                 } else {
                     Toast.makeText(getContext(), "Login incorrecto", Toast.LENGTH_SHORT).show();
                 }

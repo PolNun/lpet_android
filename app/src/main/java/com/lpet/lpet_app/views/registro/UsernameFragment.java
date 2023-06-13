@@ -6,6 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lpet.lpet_app.databinding.FragmentUsernameBinding;
-import com.lpet.lpet_app.viewmodels.RegistrationViewModel;
+import com.lpet.lpet_app.viewmodels.registro.RegistrationViewModel;
 
 public class UsernameFragment extends Fragment {
     private EditText etUsername;
@@ -42,7 +45,8 @@ public class UsernameFragment extends Fragment {
 
                 registrationViewModel.saveStep2Data(username);
                 registrationViewModel.register();
-                Toast.makeText(getContext(), "Usuario registrado" + registrationViewModel.getRegistrationModelLiveData().getValue().toString(), Toast.LENGTH_SHORT).show();
+                NavDirections actionGoToChats = UsernameFragmentDirections.actionNombreUsuarioFragmentToChatsActivity();
+                Navigation.findNavController(v).navigate(actionGoToChats);
             }
         });
     }

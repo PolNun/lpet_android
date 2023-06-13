@@ -9,4 +9,5 @@
     <color name="secundario_gradiente">#FF8C22</color>
     <color name="color_principal_b">#B0FF6000</color>
     <color name="color_secundario_b">#B0077BC8</color>
+    <color name="content_background">#EFEFEF</color>
 </resources>

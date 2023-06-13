@@ -1,4 +1,4 @@
-package com.lpet.lpet_app.viewmodels;
+package com.lpet.lpet_app.viewmodels.login;
 
 
 import androidx.lifecycle.LiveData;

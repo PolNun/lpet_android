@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.lpet.lpet_app.databinding.FragmentRegistrationBinding;
-import com.lpet.lpet_app.viewmodels.RegistrationViewModel;
+import com.lpet.lpet_app.viewmodels.registro.RegistrationViewModel;
 
 public class RegistrationFragment extends Fragment {
     private EditText etEmail;
