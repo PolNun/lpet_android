@@ -33,7 +33,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentLoginBinding.inflate(getLayoutInflater());
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
         initializeView();

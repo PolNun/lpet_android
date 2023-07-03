@@ -1,26 +1,26 @@
 package com.lpet.lpet_app.utils;
 
-import com.lpet.lpet_app.models.LoginModel;
-import com.lpet.lpet_app.models.RegistrationModel;
+import com.lpet.lpet_app.models.Login;
+import com.lpet.lpet_app.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BBDDUsuarios {
-    private List<LoginModel> loginModels;
-    private List<RegistrationModel> registrationModels;
+    private List<Login> loginModels;
+    private List<User> registrationModels;
 
     public BBDDUsuarios() {
         loginModels = new ArrayList<>();
         registrationModels = new ArrayList<>();
     }
 
-    public void addLoginModel(LoginModel loginModel) {
+    public void addLoginModel(Login loginModel) {
         loginModels.add(loginModel);
     }
 
     public boolean checkLoginCredentials(String email, String password) {
-        for (LoginModel loginModel : loginModels) {
+        for (Login loginModel : loginModels) {
             if (loginModel.getEmail().equals(email) && loginModel.getPassword().equals(password)) {
                 return true;
             }
@@ -28,12 +28,12 @@ public class BBDDUsuarios {
         return false;
     }
 
-    public void addRegistrationModel(RegistrationModel registrationModel) {
+    public void addRegistrationModel(User registrationModel) {
         registrationModels.add(registrationModel);
     }
 
     public boolean isEmailRegistered(String email) {
-        for (RegistrationModel registrationModel : registrationModels) {
+        for (User registrationModel : registrationModels) {
             if (registrationModel.getEmail().equals(email)) {
                 return true;
             }
@@ -42,7 +42,7 @@ public class BBDDUsuarios {
     }
 
     public boolean isUsernameTaken(String username) {
-        for (RegistrationModel registrationModel : registrationModels) {
+        for (User registrationModel : registrationModels) {
             if (registrationModel.getUsername().equals(username)) {
                 return true;
             }

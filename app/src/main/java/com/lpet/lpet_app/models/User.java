@@ -2,12 +2,14 @@ package com.lpet.lpet_app.models;
 
 import androidx.annotation.NonNull;
 
-public class RegistrationModel {
+import com.lpet.lpet_app.utils.FieldValidator;
+
+public class User {
     private String email;
     private String password;
     private String username;
 
-    public RegistrationModel(String email, String password) {
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
@@ -37,18 +39,15 @@ public class RegistrationModel {
     }
 
     public boolean isValidEmail() {
-        // Add email validation logic using regex if required
-        return email != null && !email.isEmpty();
+        return FieldValidator.isValidEmail(email);
     }
 
     public boolean isValidPassword() {
-        // Add password validation logic using regex if required
-        return password != null && !password.isEmpty();
+        return FieldValidator.isValidPassword(password);
     }
 
     public boolean isValidUsername() {
-        // Add username validation logic using regex if required
-        return username != null && !username.isEmpty();
+        return FieldValidator.isValidUsername(username);
     }
 
     @NonNull

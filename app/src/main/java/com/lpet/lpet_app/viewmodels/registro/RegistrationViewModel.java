@@ -1,42 +1,57 @@
 package com.lpet.lpet_app.viewmodels.registro;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.lpet.lpet_app.models.RegistrationModel;
+import com.lpet.lpet_app.api.responsemodels.RegistrationResponse;
+import com.lpet.lpet_app.models.User;
 import com.lpet.lpet_app.models.repositories.UserRepository;
 
 public class RegistrationViewModel extends ViewModel {
-    private MutableLiveData<RegistrationModel> registrationModelLiveData;
-    private UserRepository userRepository;
+    private final MutableLiveData<User> registrationModelLiveData;
+    private final UserRepository userRepository;
 
     public RegistrationViewModel() {
         registrationModelLiveData = new MutableLiveData<>();
         userRepository = UserRepository.getInstance();
     }
 
-    public LiveData<RegistrationModel> getRegistrationModelLiveData() {
-        return registrationModelLiveData;
-    }
-
     public void saveStep1Data(String email, String password) {
-        RegistrationModel registrationModel = new RegistrationModel(email, password);
+        User registrationModel = new User(email, password);
         registrationModelLiveData.setValue(registrationModel);
     }
 
     public void saveStep2Data(String username) {
-        RegistrationModel registrationModel = registrationModelLiveData.getValue();
+        User registrationModel = registrationModelLiveData.getValue();
         if (registrationModel != null) {
             registrationModel.setUsername(username);
             registrationModelLiveData.setValue(registrationModel);
         }
     }
 
-    public void register() {
-        RegistrationModel registrationModel = registrationModelLiveData.getValue();
+    public void register(final RegistrationCallback callback) {
+        User registrationModel = registrationModelLiveData.getValue();
         if (registrationModel != null) {
-            userRepository.registerUser(registrationModel);
+            userRepository.registerUser(registrationModel, new UserRepository.RegistrationCallback() {
+
+                @Override
+                public void onRegistrationSuccess(RegistrationResponse registrationResponse) {
+                    // Handle registration success
+                    callback.onRegistrationSuccess();
+                }
+
+                @Override
+                public void onRegistrationFailure(String errorMessage) {
+                    // Handle registration failure
+                    callback.onRegistrationFailure(errorMessage);
+                }
+            });
         }
+    }
+
+    public interface RegistrationCallback {
+        void onRegistrationSuccess();
+
+        void onRegistrationFailure(String errorMessage);
     }
 }
