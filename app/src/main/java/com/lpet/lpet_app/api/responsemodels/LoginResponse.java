@@ -1,25 +1,28 @@
 package com.lpet.lpet_app.api.responsemodels;
 
 public class LoginResponse {
-    private String token;
-    private String username;
+    private Long id;
     private String email;
+    private String username;
 
-    public LoginResponse(String token, String username, String email) {
-        this.token = token;
-        this.username = username;
+    public LoginResponse() {
+    }
+
+    public LoginResponse(Long id, String email, String username) {
+        this.id = id;
         this.email = email;
+        this.username = username;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public String getUsername() {
-        return username;
+    public Long getId() {
+        return id;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }

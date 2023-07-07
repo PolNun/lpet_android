@@ -15,11 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lpet.lpet_app.R;
 import com.lpet.lpet_app.databinding.FragmentLoginBinding;
 import com.lpet.lpet_app.viewmodels.login.LoginViewModel;
+
+import java.util.Objects;
 
 public class LoginFragment extends Fragment {
     private EditText etEmail;
@@ -35,25 +39,35 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-
         initializeView();
-
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-        loginViewModel.getLoginSuccessLiveData().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+
+        // Observe the isLoading and loginResult LiveData objects
+        loginViewModel.isLoading().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
-            public void onChanged(Boolean isSuccess) {
-                if (isSuccess) {
-                    NavDirections actionGoToChats = LoginFragmentDirections.actionLoginFragmentToChatsActivity();
-                    Navigation.findNavController(view).navigate(actionGoToChats);
+            public void onChanged(Boolean isLoading) {
+                ProgressBar progressBar = new ProgressBar(getContext());
+                if (isLoading) {
+                    progressBar.setIndeterminate(true);
+                    progressBar.setVisibility(View.VISIBLE);
                 } else {
-                    Toast.makeText(getContext(), "Login incorrecto", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        loginViewModel.getLoginResult().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String loginResult) {
+                Toast.makeText(getContext(), loginResult, Toast.LENGTH_SHORT).show();
+                if (loginResult.equals("Login successful")) {
+                    goToHomeFragment(view);
                 }
             }
         });
@@ -66,6 +80,30 @@ public class LoginFragment extends Fragment {
         tvGoToRegistration = binding.tvGoToRegistration;
         tvForgotPassword = binding.tvForgotPassword;
 
+        setTvGoToRegistration();
+        setTvForgotPassword();
+        setBtnLogin();
+    }
+
+    private void setTvGoToRegistration() {
+        tvGoToRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToRegistrationFragment(v);
+            }
+        });
+    }
+
+    private void setTvForgotPassword() {
+        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "¯\\_(ツ)_/¯", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void setBtnLogin() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,20 +112,12 @@ public class LoginFragment extends Fragment {
                 loginViewModel.login(email, password);
             }
         });
+    }
 
-        tvGoToRegistration.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToRegistrationFragment(v);
-            }
-        });
-
-        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "¯\\_(ツ)_/¯", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void goToHomeFragment(View v) {
+        NavDirections actionGoToChats = LoginFragmentDirections.actionLoginFragmentToChatsActivity();
+        Navigation.findNavController(v).navigate(actionGoToChats);
+        requireActivity().finish();
     }
 
     private void goToRegistrationFragment(View v) {

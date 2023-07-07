@@ -5,15 +5,15 @@ import androidx.lifecycle.ViewModel;
 
 import com.lpet.lpet_app.api.responsemodels.RegistrationResponse;
 import com.lpet.lpet_app.models.User;
-import com.lpet.lpet_app.models.repositories.UserRepository;
+import com.lpet.lpet_app.models.repositories.LoginRepository;
 
 public class RegistrationViewModel extends ViewModel {
     private final MutableLiveData<User> registrationModelLiveData;
-    private final UserRepository userRepository;
+//    private final RegistrationRepository registrationRepository;
 
     public RegistrationViewModel() {
         registrationModelLiveData = new MutableLiveData<>();
-        userRepository = UserRepository.getInstance();
+//        registrationRepository = new RegistrationRepository();
     }
 
     public void saveStep1Data(String email, String password) {
@@ -29,25 +29,25 @@ public class RegistrationViewModel extends ViewModel {
         }
     }
 
-    public void register(final RegistrationCallback callback) {
-        User registrationModel = registrationModelLiveData.getValue();
-        if (registrationModel != null) {
-            userRepository.registerUser(registrationModel, new UserRepository.RegistrationCallback() {
-
-                @Override
-                public void onRegistrationSuccess(RegistrationResponse registrationResponse) {
-                    // Handle registration success
-                    callback.onRegistrationSuccess();
-                }
-
-                @Override
-                public void onRegistrationFailure(String errorMessage) {
-                    // Handle registration failure
-                    callback.onRegistrationFailure(errorMessage);
-                }
-            });
-        }
-    }
+//    public void register(final RegistrationCallback callback) {
+//        User registrationModel = registrationModelLiveData.getValue();
+//        if (registrationModel != null) {
+//            userRepository.registerUser(registrationModel, new UserRepository.RegistrationCallback() {
+//
+//                @Override
+//                public void onRegistrationSuccess(RegistrationResponse registrationResponse) {
+//                    // Handle registration success
+//                    callback.onRegistrationSuccess();
+//                }
+//
+//                @Override
+//                public void onRegistrationFailure(String errorMessage) {
+//                    // Handle registration failure
+//                    callback.onRegistrationFailure(errorMessage);
+//                }
+//            });
+//        }
+//    }
 
     public interface RegistrationCallback {
         void onRegistrationSuccess();

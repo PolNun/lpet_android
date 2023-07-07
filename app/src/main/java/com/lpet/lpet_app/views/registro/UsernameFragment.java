@@ -44,17 +44,17 @@ public class UsernameFragment extends Fragment {
                 String username = etUsername.getText().toString();
 
                 registrationViewModel.saveStep2Data(username);
-                registrationViewModel.register(new RegistrationViewModel.RegistrationCallback() {
-                    @Override
-                    public void onRegistrationSuccess() {
-                        Toast.makeText(getContext(), "Usuario registrado", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onRegistrationFailure(String errorMessage) {
-                        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                registrationViewModel.register(new RegistrationViewModel.RegistrationCallback() {
+//                    @Override
+//                    public void onRegistrationSuccess() {
+//                        Toast.makeText(getContext(), "Usuario registrado", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onRegistrationFailure(String errorMessage) {
+//                        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
                 NavDirections actionGoToChats = UsernameFragmentDirections.actionNombreUsuarioFragmentToChatsActivity();
                 Navigation.findNavController(v).navigate(actionGoToChats);
             }
