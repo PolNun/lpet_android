@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.lpet.lpet_app.R;
 import com.lpet.lpet_app.databinding.FragmentLoginBinding;
+import com.lpet.lpet_app.utils.FieldValidator;
 import com.lpet.lpet_app.viewmodels.login.LoginViewModel;
 
 import java.util.Objects;
@@ -33,6 +34,7 @@ public class LoginFragment extends Fragment {
     private TextView tvForgotPassword;
     private FragmentLoginBinding binding;
     private LoginViewModel loginViewModel;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -48,27 +50,20 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
-        // Observe the isLoading and loginResult LiveData objects
-        loginViewModel.isLoading().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean isLoading) {
-                ProgressBar progressBar = new ProgressBar(getContext());
-                if (isLoading) {
-                    progressBar.setIndeterminate(true);
-                    progressBar.setVisibility(View.VISIBLE);
-                } else {
-                    progressBar.setVisibility(View.GONE);
-                }
+        loginViewModel.isLoading().observe(getViewLifecycleOwner(), isLoading -> {
+            if (isLoading) {
+                progressBar.setIndeterminate(true);
+                progressBar.setVisibility(View.VISIBLE);
+            } else {
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
 
-        loginViewModel.getLoginResult().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String loginResult) {
+        loginViewModel.getLoginResult().observe(getViewLifecycleOwner(), loginResult -> {
+            if (loginResult.equals("Login successful")) {
+                goToHomeFragment(view);
+            } else {
                 Toast.makeText(getContext(), loginResult, Toast.LENGTH_SHORT).show();
-                if (loginResult.equals("Login successful")) {
-                    goToHomeFragment(view);
-                }
             }
         });
     }
@@ -79,6 +74,7 @@ public class LoginFragment extends Fragment {
         btnLogin = binding.btnLogin;
         tvGoToRegistration = binding.tvGoToRegistration;
         tvForgotPassword = binding.tvForgotPassword;
+        progressBar = binding.progressBar;
 
         setTvGoToRegistration();
         setTvForgotPassword();
@@ -86,21 +82,11 @@ public class LoginFragment extends Fragment {
     }
 
     private void setTvGoToRegistration() {
-        tvGoToRegistration.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToRegistrationFragment(v);
-            }
-        });
+        tvGoToRegistration.setOnClickListener(v -> goToRegistrationFragment(v));
     }
 
     private void setTvForgotPassword() {
-        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "¯\\_(ツ)_/¯", Toast.LENGTH_SHORT).show();
-            }
-        });
+        tvForgotPassword.setOnClickListener(v -> Toast.makeText(getContext(), "¯\\_(ツ)_/¯", Toast.LENGTH_SHORT).show());
     }
 
     private void setBtnLogin() {
@@ -109,9 +95,23 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
-                loginViewModel.login(email, password);
+                validateAndLogin(email, password);
             }
         });
+    }
+
+    private void validateAndLogin(String email, String password) {
+        if (!FieldValidator.isValidEmail(email)) {
+            etEmail.setError("Email inválido");
+            return;
+        }
+
+        if (!FieldValidator.isValidPassword(password)) {
+            etPassword.setError("Contraseña inválida");
+            return;
+        }
+
+        loginViewModel.login(email, password);
     }
 
     private void goToHomeFragment(View v) {

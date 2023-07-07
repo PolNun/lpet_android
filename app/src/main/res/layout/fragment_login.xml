@@ -70,11 +70,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="75dp"
         android:background="@drawable/boton_principal"
         android:elevation="12dp"
         android:text="@string/texto_iniciar_sesion"
         android:textAppearance="@style/texto_boton_principal" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/tvGoToRegistration"
@@ -85,5 +93,6 @@
         android:textAlignment="center"
         android:textAppearance="@style/texto_enlace"
         android:textSize="16sp" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
