@@ -3,11 +3,9 @@ package com.lpet.lpet_app.views.login;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
-
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,12 +17,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lpet.lpet_app.R;
 import com.lpet.lpet_app.databinding.FragmentLoginBinding;
 import com.lpet.lpet_app.utils.FieldValidator;
 import com.lpet.lpet_app.viewmodels.login.LoginViewModel;
-
-import java.util.Objects;
 
 public class LoginFragment extends Fragment {
     private EditText etEmail;
