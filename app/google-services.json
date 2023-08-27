@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "781939884323",
+    "project_id": "lpet-chat",
+    "storage_bucket": "lpet-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781939884323:android:b3425890c4ca87eaee8c96",
+        "android_client_info": {
+          "package_name": "com.lpet.lpet_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781939884323-4nifl9e514ega8hhhh2spbfbuvm02ah3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE4NMKy4oLHrN7ktBgqBXvLND1RY43uqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781939884323-4nifl9e514ega8hhhh2spbfbuvm02ah3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
