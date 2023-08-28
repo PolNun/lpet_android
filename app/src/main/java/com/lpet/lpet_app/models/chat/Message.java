@@ -1,4 +1,4 @@
-package com.lpet.lpet_app.models;
+package com.lpet.lpet_app.models.chat;
 
 public class Message {
     private String sender;
