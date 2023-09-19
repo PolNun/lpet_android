@@ -25,4 +25,5 @@
     <string name="navref_fragment_login">fragment_login</string>
     <string name="navref_fragment_registro">fragment_registro</string>
     <string name="orientation_portrait">portrait</string>
+    <string name="title_activity_chat_detail">ChatDetailActivity</string>
 </resources>

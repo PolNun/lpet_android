@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.lpet.lpet_app.databinding.FragmentRegistrationBinding;
 import com.lpet.lpet_app.utils.FieldValidator;
@@ -25,6 +26,7 @@ public class RegistrationFragment extends Fragment {
     private EditText etRepeatPassword;
     private FragmentRegistrationBinding binding;
     private RegistrationViewModel registrationViewModel;
+    private TextView tvAlreadyRegistered;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class RegistrationFragment extends Fragment {
         etPassword = binding.etRegistrationPassword;
         btnNext = binding.btnContinueRegistration;
         etRepeatPassword = binding.etRepeatPassword;
+        tvAlreadyRegistered = binding.tvAlreadyRegistered;
 
         registrationViewModel = new ViewModelProvider(requireActivity()).get(RegistrationViewModel.class);
 
@@ -55,6 +58,13 @@ public class RegistrationFragment extends Fragment {
 
                 NavDirections action = RegistrationFragmentDirections.actionRegistroFragmentToNombreUsuarioFragment();
                 Navigation.findNavController(v).navigate(action);
+            }
+        });
+
+        tvAlreadyRegistered.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requireActivity().onBackPressed();
             }
         });
     }

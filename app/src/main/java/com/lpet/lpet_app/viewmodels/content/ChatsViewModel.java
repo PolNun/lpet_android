@@ -4,19 +4,22 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.lpet.lpet_app.models.chat.Message;
+import com.lpet.lpet_app.models.chat.Chat;
 
 import java.util.List;
 
 public class ChatsViewModel extends ViewModel {
 
-    private final MutableLiveData<List<Message>> chatMessages = new MutableLiveData<>();
+    // Use a more descriptive variable name for clarity
+    private final MutableLiveData<List<Chat>> chatListLiveData = new MutableLiveData<>();
 
-    public LiveData<List<Message>> getChatMessages() {
-        return chatMessages;
+    // Expose the LiveData as a read-only LiveData to the outside
+    public LiveData<List<Chat>> getChatList() {
+        return chatListLiveData;
     }
 
-    public void setChatMessages(List<Message> messages) {
-        chatMessages.setValue(messages);
+    // This method sets the value of the LiveData
+    public void setChatList(List<Chat> chats) {
+        chatListLiveData.setValue(chats);
     }
 }

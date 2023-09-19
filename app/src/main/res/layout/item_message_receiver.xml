@@ -2,7 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="8dp"
+    android:gravity="end"
+    android:paddingEnd="16dp"
+    android:paddingBottom="8dp">
 
     <TextView
         android:id="@+id/textSender"
@@ -10,8 +16,7 @@
         android:layout_height="wrap_content"
         android:textColor="#333333"
         android:textSize="12sp"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textContent"
@@ -19,8 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:textColor="#000000"
-        android:textSize="14sp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textTimestamp"
@@ -29,5 +33,5 @@
         android:layout_marginTop="4dp"
         android:textColor="#666666"
         android:textSize="10sp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="SmallSp" />
 </LinearLayout>

@@ -9,58 +9,64 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lpet.lpet_app.R;
-import com.lpet.lpet_app.models.chat.Message;
+import com.lpet.lpet_app.models.chat.Chat; // Import the Chat model
 
 import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
-    private List<Message> messages;
+    private OnChatItemClickListener onChatItemClickListener;
+    private List<Chat> chats;
 
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
+    public interface OnChatItemClickListener {
+        void onChatItemClick(Chat chat);
+    }
+
+    public void setOnChatItemClickListener(OnChatItemClickListener onChatItemClickListener) {
+        this.onChatItemClickListener = onChatItemClickListener;
+    }
+
+
+    public void setChats(List<Chat> chats) {
+        this.chats = chats;
         notifyDataSetChanged();
     }
 
     @Override
     public void onBindViewHolder(@NonNull ChatAdapter.ViewHolder holder, int position) {
-        Message message = messages.get(position);
-        holder.textSender.setText(message.getSender());
-        holder.textContent.setText(message.getContent());
-        holder.textTimestamp.setText(message.getTimestamp());
+        Chat chat = chats.get(position);
+        holder.textChatName.setText(chat.getChatName());
+        holder.textLastMessage.setText(chat.getLastMessage());
+        holder.textTimestamp.setText(String.valueOf(chat.getTimestamp()));
+
+        holder.itemView.setOnClickListener(v -> {
+            if (onChatItemClickListener != null) {
+                onChatItemClickListener.onChatItemClick(chat);
+            }
+        });
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textSender;
-        TextView textContent;
+        TextView textChatName;
+        TextView textLastMessage;
         TextView textTimestamp;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textSender = itemView.findViewById(R.id.textSender);
-            textContent = itemView.findViewById(R.id.textContent);
+            textChatName = itemView.findViewById(R.id.textChatName);
+            textLastMessage = itemView.findViewById(R.id.textLastMessage);
             textTimestamp = itemView.findViewById(R.id.textTimestamp);
         }
     }
 
     @Override
-    public int getItemViewType(int position) {
-        Message message = messages.get(position);
-        if (message.getSender().equals("Pablo")) {
-            return R.layout.item_message_sender;
-        } else {
-            return R.layout.item_message_receiver;
-        }
-    }
-
-    @Override
     public int getItemCount() {
-        return messages != null ? messages.size() : 0;
+        return chats != null ? chats.size() : 0;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message_sender, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat, parent, false); // Use the chat item layout
         return new ViewHolder(view);
     }
 }

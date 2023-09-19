@@ -78,7 +78,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void setTvGoToRegistration() {
-        tvGoToRegistration.setOnClickListener(v -> goToRegistrationFragment(v));
+        tvGoToRegistration.setOnClickListener(this::goToRegistrationFragment);
     }
 
     private void setTvForgotPassword() {

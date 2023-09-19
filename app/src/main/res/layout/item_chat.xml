@@ -1,33 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingStart="16dp"
-    android:paddingTop="8dp"
-    android:paddingEnd="16dp"
-    android:paddingBottom="8dp">
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/textSender"
+        android:id="@+id/textChatName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="12sp" />
+        android:text="Chat Name"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textContent"
+        android:id="@+id/textLastMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp" />
+        android:text="Last Message"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textTimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#CCCCCC"
-        android:textSize="10sp"
-        android:layout_marginTop="4dp" />
+        android:text="Timestamp"
+        android:textSize="12sp" />
+
 </LinearLayout>
