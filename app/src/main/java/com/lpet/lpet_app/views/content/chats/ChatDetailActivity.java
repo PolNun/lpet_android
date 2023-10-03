@@ -3,6 +3,7 @@ package com.lpet.lpet_app.views.content.chats;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,6 +36,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityChatDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        System.out.println("onCreate");
 
         binding.buttonSend.setOnClickListener(v -> {
             String message = binding.editTextMessage.getText().toString();
@@ -63,7 +65,7 @@ public class ChatDetailActivity extends AppCompatActivity {
             @Override
             public void onOpen(WebSocket webSocket, Response response) {
                 super.onOpen(webSocket, response);
-                Toast.makeText(ChatDetailActivity.this, "onOpen", Toast.LENGTH_SHORT).show();
+                System.out.println("onOpen");
             }
 
             @Override
@@ -71,25 +73,30 @@ public class ChatDetailActivity extends AppCompatActivity {
                 super.onMessage(webSocket, text);
                 // Recibir mensaje
                 // Actualizar vista
-                Toast.makeText(ChatDetailActivity.this, text, Toast.LENGTH_SHORT).show();
+                System.out.println("onMessage");
             }
 
             @Override
             public void onClosing(WebSocket webSocket, int code, String reason) {
                 super.onClosing(webSocket, code, reason);
-                Toast.makeText(ChatDetailActivity.this, reason, Toast.LENGTH_SHORT).show();
+                System.out.println("onClosing");
             }
 
             @Override
             public void onClosed(WebSocket webSocket, int code, String reason) {
                 super.onClosed(webSocket, code, reason);
-                Toast.makeText(ChatDetailActivity.this, reason, Toast.LENGTH_SHORT).show();
+                System.out.println("onClosed");
             }
 
             @Override
             public void onFailure(WebSocket webSocket, Throwable t, Response response) {
                 super.onFailure(webSocket, t, response);
-                Toast.makeText(ChatDetailActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                if (response != null) {
+                    Log.e("TAG", "WebSocket onFailure: " + response.code() + " " + response.message());
+                    Log.e("TAG", "WebSocket onFailure: " + response.body());
+                }
+                Log.e("TAG", "WebSocket onFailure: " + t.getMessage());
+                System.out.println("onFailure");
             }
         };
 
